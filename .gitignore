@@ -69,8 +69,6 @@ documents/postings/**
 documents/interview/**
 !documents/**/.gitkeep
 
-# Personal job search tracking
-job_search_tracker.csv
 
 # Gmail sync state (message IDs, subjects - personal data)
 gmail_sync/

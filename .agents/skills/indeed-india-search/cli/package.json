@@ -1,0 +1,20 @@
+{
+  "name": "indeed-india-cli",
+  "version": "1.0.0",
+  "description": "CLI for searching jobs on Indeed India's public job listings — no authentication, zero runtime dependencies. Personal use only (Indeed robots.txt/ToS).",
+  "type": "module",
+  "main": "src/cli.ts",
+  "bin": {
+    "indeed-india-search": "src/cli.ts"
+  },
+  "scripts": {
+    "start": "bun run src/cli.ts",
+    "test": "bun test --timeout 30000",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "@types/bun": "latest"
+  }
+}
