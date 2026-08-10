@@ -12,9 +12,7 @@ export function writeError(error: string, code: string): void {
   process.stderr.write(JSON.stringify({ error, code }) + "\n")
 }
 
-const UA =
-  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +
-  "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+const UA = "Mozilla/5.0 (compatible; iimjobs-search-cli/1.0)"
 
 // City/region name -> iimjobs API location id. These are the ids the `loc` search
 // filter actually uses (derived from the API's own location objects — they differ

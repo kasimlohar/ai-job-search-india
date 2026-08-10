@@ -19,9 +19,7 @@ export function writeError(error: string, code: string): void {
   process.stderr.write(JSON.stringify({ error, code }) + "\n")
 }
 
-const UA =
-  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +
-  "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+const UA = "Mozilla/5.0 (compatible; cutshort-search-cli/1.0)"
 
 /** Fetch a URL with exponential backoff + jitter on 429/5xx. Returns "" on 404. */
 export async function fetchText(url: string): Promise<string> {

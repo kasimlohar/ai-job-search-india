@@ -14,9 +14,7 @@ export function writeError(error: string, code: string): void {
   process.stderr.write(JSON.stringify({ error, code }) + "\n")
 }
 
-const UA =
-  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +
-  "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+const UA = "Mozilla/5.0 (compatible; protocoljobs-search-cli/1.0)"
 
 /** POST/GET JSON with exponential backoff on 429/5xx. Returns null on a 404. */
 export async function jsonFetch<T = unknown>(
