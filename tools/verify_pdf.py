@@ -13,21 +13,29 @@ class VerificationError(Exception):
 
 
 def run_tool(command):
+    # NOTE (Windows): never use text=True here. The console locale (cp1252)
+    # cannot decode glyph bytes pdftotext emits for icon fonts (e.g. 0x9d),
+    # which crashes the reader thread. Decode as UTF-8 with replacement and
+    # let the callers judge the text (a real U+FFFD still fails the ATS
+    # parseability checks in /apply Step 5d, as it should).
     try:
-        return subprocess.run(
+        completed = subprocess.run(
             command,
             check=True,
             capture_output=True,
-            text=True,
-        ).stdout
+        )
     except FileNotFoundError as exc:
         raise VerificationError(
             f"required command '{command[0]}' was not found; install poppler-utils"
         ) from exc
     except subprocess.CalledProcessError as exc:
-        detail = (exc.stderr or "").strip() or (exc.stdout or "").strip()
+        detail = (exc.stderr or b"").decode("utf-8", errors="replace").strip()
+        detail = detail or (exc.stdout or b"").decode("utf-8", errors="replace").strip()
         detail = detail or "command failed"
-        raise VerificationError(f"{command[0]} could not read the PDF: {detail}") from exc
+        raise VerificationError(
+            f"{command[0]} could not read the PDF: {detail}"
+        ) from exc
+    return completed.stdout.decode("utf-8", errors="replace")
 
 
 def parse_page_count(pdfinfo_output):
@@ -63,7 +71,9 @@ def verify_pdf(pdf_path, expected_pages=None, min_chars=1, required_text=()):
 
     for required in required_text:
         if normalize_text(required) not in extracted_text:
-            raise VerificationError(f"text layer is missing required text: {required!r}")
+            raise VerificationError(
+                f"text layer is missing required text: {required!r}"
+            )
 
 
 def build_parser():
