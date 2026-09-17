@@ -11,7 +11,7 @@ description: >
   jobs India, management jobs, "find <role> jobs in <Indian city>", look up an iimjobs
   posting.
 context: fork
-allowed-tools: Bash(bun run skills/iimjobs-search/cli/src/cli.ts *)
+allowed-tools: Bash(bun run .agents/skills/iimjobs-search/cli/src/cli.ts *)
 ---
 
 # iimjobs Search Skill
@@ -37,7 +37,7 @@ collection.** Run it on your own responsibility.
 
 ### `search`
 ```
-bun run skills/iimjobs-search/cli/src/cli.ts search -q "<keywords>" [flags]
+bun run .agents/skills/iimjobs-search/cli/src/cli.ts search -q "<keywords>" [flags]
 ```
 Provide at least `--query` or `--location`.
 
@@ -54,7 +54,7 @@ Provide at least `--query` or `--location`.
 
 ### `detail`
 ```
-bun run skills/iimjobs-search/cli/src/cli.ts detail <id|url> [--format json|plain]
+bun run .agents/skills/iimjobs-search/cli/src/cli.ts detail <id|url> [--format json|plain]
 ```
 Accepts a numeric job id or a full `https://www.iimjobs.com/j/<slug>-<id>` URL.
 
@@ -62,22 +62,22 @@ Accepts a numeric job id or a full `https://www.iimjobs.com/j/<slug>-<id>` URL.
 
 ```bash
 # Business-intelligence roles, table view
-bun run skills/iimjobs-search/cli/src/cli.ts search -q "business intelligence" --limit 10 --format table
+bun run .agents/skills/iimjobs-search/cli/src/cli.ts search -q "business intelligence" --limit 10 --format table
 
 # Data-analyst roles in Bangalore, posted in the last 7 days
-bun run skills/iimjobs-search/cli/src/cli.ts search -q "data analyst" -l "Bangalore" --jobage 7 --format table
+bun run .agents/skills/iimjobs-search/cli/src/cli.ts search -q "data analyst" -l "Bangalore" --jobage 7 --format table
 
 # Power BI roles in Pune, 3–8 years experience
-bun run skills/iimjobs-search/cli/src/cli.ts search -q "power bi" -l "Pune" --minexp 3 --maxexp 8 --format plain
+bun run .agents/skills/iimjobs-search/cli/src/cli.ts search -q "power bi" -l "Pune" --minexp 3 --maxexp 8 --format plain
 
 # Strategy-consulting roles in Mumbai, page 2
-bun run skills/iimjobs-search/cli/src/cli.ts search -q "strategy consulting" -l "Mumbai" --page 2 --format table
+bun run .agents/skills/iimjobs-search/cli/src/cli.ts search -q "strategy consulting" -l "Mumbai" --page 2 --format table
 
 # Remote analytics roles
-bun run skills/iimjobs-search/cli/src/cli.ts search -q "analytics" -l "Remote" --format table
+bun run .agents/skills/iimjobs-search/cli/src/cli.ts search -q "analytics" -l "Remote" --format table
 
 # Full description of a specific posting
-bun run skills/iimjobs-search/cli/src/cli.ts detail 1712209 --format plain
+bun run .agents/skills/iimjobs-search/cli/src/cli.ts detail 1712209 --format plain
 ```
 
 ## Output format

@@ -11,7 +11,7 @@ description: >
   India, naukri, job openings, vacancies, hiring in <Indian city>, "are there
   any X jobs in <city>", look up this Randstad job posting.
 context: fork
-allowed-tools: Bash(bun run skills/randstad-india-search/cli/src/cli.ts *)
+allowed-tools: Bash(bun run .agents/skills/randstad-india-search/cli/src/cli.ts *)
 ---
 
 # Randstad India Search Skill
@@ -33,7 +33,7 @@ just `bun`.
 ### Search job listings
 
 ```bash
-bun run skills/randstad-india-search/cli/src/cli.ts search --query "<text>" --location "<city>" [flags]
+bun run .agents/skills/randstad-india-search/cli/src/cli.ts search --query "<text>" --location "<city>" [flags]
 ```
 
 Provide at least `--query` or `--location`.
@@ -49,7 +49,7 @@ Flags:
 ### Fetch full job detail
 
 ```bash
-bun run skills/randstad-india-search/cli/src/cli.ts detail "<job-url>" [--format json|plain]
+bun run .agents/skills/randstad-india-search/cli/src/cli.ts detail "<job-url>" [--format json|plain]
 ```
 
 Randstad detail URLs are `/jobs/<slug>_<city>_<uuid>/` and the slug cannot be
@@ -61,19 +61,19 @@ Returns the full description, employment type, reference id, and posting date.
 
 ```bash
 # Project manager roles in Pune
-bun run skills/randstad-india-search/cli/src/cli.ts search -q "project manager" -l "Pune" --format table
+bun run .agents/skills/randstad-india-search/cli/src/cli.ts search -q "project manager" -l "Pune" --format table
 
 # Data engineer roles in Bengaluru, posted in the last 30 days
-bun run skills/randstad-india-search/cli/src/cli.ts search -q "data engineer" -l "Bengaluru" --jobage 30 --format table
+bun run .agents/skills/randstad-india-search/cli/src/cli.ts search -q "data engineer" -l "Bengaluru" --jobage 30 --format table
 
 # Accountant roles in Mumbai, first 10
-bun run skills/randstad-india-search/cli/src/cli.ts search -q "accountant" -l "Mumbai" --limit 10 --format table
+bun run .agents/skills/randstad-india-search/cli/src/cli.ts search -q "accountant" -l "Mumbai" --limit 10 --format table
 
 # All roles in Hyderabad
-bun run skills/randstad-india-search/cli/src/cli.ts search -l "Hyderabad" --format table
+bun run .agents/skills/randstad-india-search/cli/src/cli.ts search -l "Hyderabad" --format table
 
 # Full details for a specific job
-bun run skills/randstad-india-search/cli/src/cli.ts detail "https://www.randstad.in/jobs/project-manager-structural_pune_8b8726ea-cf54-4912-9f6d-d11e25f6fbee/" --format plain
+bun run .agents/skills/randstad-india-search/cli/src/cli.ts detail "https://www.randstad.in/jobs/project-manager-structural_pune_8b8726ea-cf54-4912-9f6d-d11e25f6fbee/" --format plain
 ```
 
 ## Output formats

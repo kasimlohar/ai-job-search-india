@@ -9,7 +9,7 @@ description: >
   jobs, We Work Remotely, WWR, search WWR, remote openings, remote positions,
   "are there any remote X jobs", look up this We Work Remotely job posting.
 context: fork
-allowed-tools: Bash(bun run skills/weworkremotely-search/cli/src/cli.ts *)
+allowed-tools: Bash(bun run .agents/skills/weworkremotely-search/cli/src/cli.ts *)
 ---
 
 # We Work Remotely Search Skill
@@ -29,7 +29,7 @@ remote by definition. No authentication, no API key, and **zero runtime dependen
 ### Search job listings
 
 ```bash
-bun run skills/weworkremotely-search/cli/src/cli.ts search [flags]
+bun run .agents/skills/weworkremotely-search/cli/src/cli.ts search [flags]
 ```
 
 Key flags:
@@ -44,7 +44,7 @@ Key flags:
 ### Fetch full job detail
 
 ```bash
-bun run skills/weworkremotely-search/cli/src/cli.ts detail <id|url> [--format json|plain]
+bun run .agents/skills/weworkremotely-search/cli/src/cli.ts detail <id|url> [--format json|plain]
 ```
 
 `id` is the slug from `search` results (e.g. `mathmo-maths-coach`). You may also pass a
@@ -54,13 +54,13 @@ full `weworkremotely.com/remote-jobs/...` URL. Returns the full description.
 
 ```bash
 # Product manager roles, any category
-bun run skills/weworkremotely-search/cli/src/cli.ts search -q "product manager" --format table
+bun run .agents/skills/weworkremotely-search/cli/src/cli.ts search -q "product manager" --format table
 
 # Rust roles, programming category only
-bun run skills/weworkremotely-search/cli/src/cli.ts search -c programming -q "rust" --format table
+bun run .agents/skills/weworkremotely-search/cli/src/cli.ts search -c programming -q "rust" --format table
 
 # Full details for a specific job
-bun run skills/weworkremotely-search/cli/src/cli.ts detail mathmo-maths-coach --format plain
+bun run .agents/skills/weworkremotely-search/cli/src/cli.ts detail mathmo-maths-coach --format plain
 ```
 
 ## Output formats

@@ -13,7 +13,7 @@ description: >
   India", "look up this protocoljobs listing", search/openings/vacancies/hiring
   for tech roles in India.
 context: fork
-allowed-tools: Bash(bun run skills/protocoljobs-search/cli/src/cli.ts *)
+allowed-tools: Bash(bun run .agents/skills/protocoljobs-search/cli/src/cli.ts *)
 ---
 
 # Protocol Jobs Search Skill
@@ -47,7 +47,7 @@ it on your own responsibility.
 ### Search job listings
 
 ```bash
-bun run skills/protocoljobs-search/cli/src/cli.ts search [flags]
+bun run .agents/skills/protocoljobs-search/cli/src/cli.ts search [flags]
 ```
 
 Key flags:
@@ -62,7 +62,7 @@ Key flags:
 ### Fetch full job detail
 
 ```bash
-bun run skills/protocoljobs-search/cli/src/cli.ts detail <id|url> [--format json|plain]
+bun run .agents/skills/protocoljobs-search/cli/src/cli.ts detail <id|url> [--format json|plain]
 ```
 
 `id` is the 24-char hex job id from `search` results (e.g. `6a58c47643dd50bdf47b3309`).
@@ -74,22 +74,22 @@ experience band, salary band, and Protocol's competition/shortlisting signals.
 
 ```bash
 # Data analyst roles in Bengaluru
-bun run skills/protocoljobs-search/cli/src/cli.ts search -q "data analyst" -l "Bengaluru" --format table
+bun run .agents/skills/protocoljobs-search/cli/src/cli.ts search -q "data analyst" -l "Bengaluru" --format table
 
 # Power BI roles posted in the last 7 days, remote
-bun run skills/protocoljobs-search/cli/src/cli.ts search -q "power bi" -l "Remote" --jobage 7 --format table
+bun run .agents/skills/protocoljobs-search/cli/src/cli.ts search -q "power bi" -l "Remote" --jobage 7 --format table
 
 # All Data-domain roles in Pune, first 10
-bun run skills/protocoljobs-search/cli/src/cli.ts search -d data -l "Pune" --limit 10 --format table
+bun run .agents/skills/protocoljobs-search/cli/src/cli.ts search -d data -l "Pune" --limit 10 --format table
 
 # Analytics roles in Gurugram, page 2
-bun run skills/protocoljobs-search/cli/src/cli.ts search -q "analytics" -l "Gurugram" --page 2 --format table
+bun run .agents/skills/protocoljobs-search/cli/src/cli.ts search -q "analytics" -l "Gurugram" --page 2 --format table
 
 # ML/AI roles, any location
-bun run skills/protocoljobs-search/cli/src/cli.ts search -d ml -q "machine learning" --limit 15
+bun run .agents/skills/protocoljobs-search/cli/src/cli.ts search -d ml -q "machine learning" --limit 15
 
 # Full details for a specific job
-bun run skills/protocoljobs-search/cli/src/cli.ts detail 6a58c47643dd50bdf47b3309 --format plain
+bun run .agents/skills/protocoljobs-search/cli/src/cli.ts detail 6a58c47643dd50bdf47b3309 --format plain
 ```
 
 ## Output formats

@@ -10,7 +10,7 @@ description: >
   phrases: open this Foundit job, foundit.in posting, Monster India job, "get
   the details of this foundit job", "read this foundit.in listing", नौकरी विवरण.
 context: fork
-allowed-tools: Bash(bun run skills/foundit-search/cli/src/cli.ts *)
+allowed-tools: Bash(bun run .agents/skills/foundit-search/cli/src/cli.ts *)
 ---
 
 # Foundit Search Skill (detail-only)
@@ -51,7 +51,7 @@ id) to `detail`.
 ### Read a job posting
 
 ```bash
-bun run skills/foundit-search/cli/src/cli.ts detail <id|url> [--format json|plain]
+bun run .agents/skills/foundit-search/cli/src/cli.ts detail <id|url> [--format json|plain]
 ```
 
 - `<id|url>` — **required.** A numeric Foundit job id (e.g. `57203413`) or a full
@@ -61,7 +61,7 @@ bun run skills/foundit-search/cli/src/cli.ts detail <id|url> [--format json|plai
 ### Search (unsupported)
 
 ```bash
-bun run skills/foundit-search/cli/src/cli.ts search ...
+bun run .agents/skills/foundit-search/cli/src/cli.ts search ...
 # -> stderr: {"error":"Foundit search is not supported ...","code":"SEARCH_UNSUPPORTED"}, exit 1
 ```
 
@@ -69,13 +69,13 @@ bun run skills/foundit-search/cli/src/cli.ts search ...
 
 ```bash
 # Full details of a Foundit posting, human-readable
-bun run skills/foundit-search/cli/src/cli.ts detail 57203413 --format plain
+bun run .agents/skills/foundit-search/cli/src/cli.ts detail 57203413 --format plain
 
 # From a full URL (e.g. one found via Google site:foundit.in "data analyst" Mumbai)
-bun run skills/foundit-search/cli/src/cli.ts detail "https://www.foundit.in/job/software-development-specialist-ntt-data-pune-57203413"
+bun run .agents/skills/foundit-search/cli/src/cli.ts detail "https://www.foundit.in/job/software-development-specialist-ntt-data-pune-57203413"
 
 # JSON for programmatic use
-bun run skills/foundit-search/cli/src/cli.ts detail 57203413
+bun run .agents/skills/foundit-search/cli/src/cli.ts detail 57203413
 ```
 
 ## Output formats

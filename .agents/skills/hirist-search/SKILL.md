@@ -10,7 +10,7 @@ description: >
   jobs, data analyst jobs in <city>, business intelligence jobs, "find me
   <role> jobs in <Indian city>", look up this hirist posting.
 context: fork
-allowed-tools: Bash(bun run skills/hirist-search/cli/src/cli.ts *)
+allowed-tools: Bash(bun run .agents/skills/hirist-search/cli/src/cli.ts *)
 ---
 
 # Hirist Search Skill
@@ -38,7 +38,7 @@ it commercially or for bulk data collection.** Run it on your own responsibility
 ### Search job listings
 
 ```bash
-bun run skills/hirist-search/cli/src/cli.ts search --query "<keywords>" [flags]
+bun run .agents/skills/hirist-search/cli/src/cli.ts search --query "<keywords>" [flags]
 ```
 
 Key flags:
@@ -52,7 +52,7 @@ Key flags:
 ### Fetch full job detail
 
 ```bash
-bun run skills/hirist-search/cli/src/cli.ts detail <id|url> [--format json|plain]
+bun run .agents/skills/hirist-search/cli/src/cli.ts detail <id|url> [--format json|plain]
 ```
 
 `id` is the job id from `search` results (e.g. `1654660`). You may also pass a
@@ -63,22 +63,22 @@ skills, experience band, work-from-home flag, and posting date.
 
 ```bash
 # Data analyst roles in Bangalore
-bun run skills/hirist-search/cli/src/cli.ts search -q "data analyst" -l "Bangalore" --format table
+bun run .agents/skills/hirist-search/cli/src/cli.ts search -q "data analyst" -l "Bangalore" --format table
 
 # Business intelligence roles in Pune, posted in the last 30 days
-bun run skills/hirist-search/cli/src/cli.ts search -q "business intelligence" -l "Pune" --jobage 30 --format table
+bun run .agents/skills/hirist-search/cli/src/cli.ts search -q "business intelligence" -l "Pune" --jobage 30 --format table
 
 # Power BI roles in Mumbai, top 10
-bun run skills/hirist-search/cli/src/cli.ts search -q "power bi" -l "Mumbai" --limit 10 --format table
+bun run .agents/skills/hirist-search/cli/src/cli.ts search -q "power bi" -l "Mumbai" --limit 10 --format table
 
 # Data engineer roles anywhere in India (no location filter)
-bun run skills/hirist-search/cli/src/cli.ts search -q "data engineer" --jobage 15 --format table
+bun run .agents/skills/hirist-search/cli/src/cli.ts search -q "data engineer" --jobage 15 --format table
 
 # Remote analytics roles
-bun run skills/hirist-search/cli/src/cli.ts search -q "analytics" -l "Remote" --format table
+bun run .agents/skills/hirist-search/cli/src/cli.ts search -q "analytics" -l "Remote" --format table
 
 # Full details for a specific job
-bun run skills/hirist-search/cli/src/cli.ts detail 1654660 --format plain
+bun run .agents/skills/hirist-search/cli/src/cli.ts detail 1654660 --format plain
 ```
 
 ## Output formats

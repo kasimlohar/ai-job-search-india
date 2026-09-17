@@ -11,7 +11,7 @@ description: >
   startup jobs India, "backend developer jobs in Bangalore", "data scientist
   jobs Mumbai", naukri Instahyre, search Instahyre, look up this Instahyre job.
 context: fork
-allowed-tools: Bash(bun run skills/instahyre-search/cli/src/cli.ts *)
+allowed-tools: Bash(bun run .agents/skills/instahyre-search/cli/src/cli.ts *)
 ---
 
 # Instahyre Search Skill
@@ -38,7 +38,7 @@ commercially or for bulk data collection.** Run it on your own responsibility.
 ### Search job listings
 
 ```bash
-bun run skills/instahyre-search/cli/src/cli.ts search --query "<keywords>" [flags]
+bun run .agents/skills/instahyre-search/cli/src/cli.ts search --query "<keywords>" [flags]
 ```
 
 Key flags:
@@ -57,7 +57,7 @@ At least one of `--query` or `--location` must be supplied.
 ### Fetch full job detail
 
 ```bash
-bun run skills/instahyre-search/cli/src/cli.ts detail <id|url> [--format json|plain]
+bun run .agents/skills/instahyre-search/cli/src/cli.ts detail <id|url> [--format json|plain]
 ```
 
 `id` is the numeric job ID from `search` results (e.g. `432044`). You may also pass
@@ -68,19 +68,19 @@ description, employment type, posted date, location, and skills.
 
 ```bash
 # Backend developer roles (all India)
-bun run skills/instahyre-search/cli/src/cli.ts search -q "backend developer" --format table
+bun run .agents/skills/instahyre-search/cli/src/cli.ts search -q "backend developer" --format table
 
 # Data scientist roles in Bangalore
-bun run skills/instahyre-search/cli/src/cli.ts search -q "data scientist" -l "Bangalore" --format table
+bun run .agents/skills/instahyre-search/cli/src/cli.ts search -q "data scientist" -l "Bangalore" --format table
 
 # React roles in Mumbai, first 10 only
-bun run skills/instahyre-search/cli/src/cli.ts search -q "React" -l "Mumbai" --limit 10 --format plain
+bun run .agents/skills/instahyre-search/cli/src/cli.ts search -q "React" -l "Mumbai" --limit 10 --format plain
 
 # DevOps roles in Pune, page 2
-bun run skills/instahyre-search/cli/src/cli.ts search -q "devops" -l "Pune" --page 2 --format table
+bun run .agents/skills/instahyre-search/cli/src/cli.ts search -q "devops" -l "Pune" --page 2 --format table
 
 # Full details for a specific job
-bun run skills/instahyre-search/cli/src/cli.ts detail 432044 --format plain
+bun run .agents/skills/instahyre-search/cli/src/cli.ts detail 432044 --format plain
 ```
 
 ## Output formats

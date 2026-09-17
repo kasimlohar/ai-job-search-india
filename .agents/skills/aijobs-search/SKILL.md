@@ -10,7 +10,7 @@ description: >
   "data analyst jobs", "data engineering jobs", "BI jobs remote", "analytics jobs",
   "find AI/data jobs", "aijobs.net".
 context: fork
-allowed-tools: Bash(bun run skills/aijobs-search/cli/src/cli.ts *)
+allowed-tools: Bash(bun run .agents/skills/aijobs-search/cli/src/cli.ts *)
 ---
 
 # AIJobs.net Search Skill
@@ -39,7 +39,7 @@ responsibility.
 ### Search job listings
 
 ```bash
-bun run skills/aijobs-search/cli/src/cli.ts search [flags]
+bun run .agents/skills/aijobs-search/cli/src/cli.ts search [flags]
 ```
 
 Key flags:
@@ -58,7 +58,7 @@ Key flags:
 ### Fetch full job detail
 
 ```bash
-bun run skills/aijobs-search/cli/src/cli.ts detail <id|url> [--format json|plain]
+bun run .agents/skills/aijobs-search/cli/src/cli.ts detail <id|url> [--format json|plain]
 ```
 
 `id` is the **slug** from `search` results (e.g. `data-analyst-richardson-tx-us-231820`),
@@ -71,22 +71,22 @@ company, salary, level, employment type, apply link, and a structured descriptio
 
 ```bash
 # Business intelligence roles, quick scan
-bun run skills/aijobs-search/cli/src/cli.ts search -q "business intelligence" --limit 5 --format table
+bun run .agents/skills/aijobs-search/cli/src/cli.ts search -q "business intelligence" --limit 5 --format table
 
 # Data analyst roles biased toward India
-bun run skills/aijobs-search/cli/src/cli.ts search -q "data analyst" -l "India" --format table
+bun run .agents/skills/aijobs-search/cli/src/cli.ts search -q "data analyst" -l "India" --format table
 
 # Power BI roles, remote only
-bun run skills/aijobs-search/cli/src/cli.ts search -q "power bi" --remote remote --format table
+bun run .agents/skills/aijobs-search/cli/src/cli.ts search -q "power bi" --remote remote --format table
 
 # Machine learning jobs posted in the last 7 days
-bun run skills/aijobs-search/cli/src/cli.ts search -q "machine learning engineer" --jobage 7 --format table
+bun run .agents/skills/aijobs-search/cli/src/cli.ts search -q "machine learning engineer" --jobage 7 --format table
 
 # Data engineering roles, page 2
-bun run skills/aijobs-search/cli/src/cli.ts search -q "data engineer" --page 2 --limit 10
+bun run .agents/skills/aijobs-search/cli/src/cli.ts search -q "data engineer" --page 2 --limit 10
 
 # Full details for a specific job (slug id from search results)
-bun run skills/aijobs-search/cli/src/cli.ts detail competitive-coder-remote-200475 --format plain
+bun run .agents/skills/aijobs-search/cli/src/cli.ts detail competitive-coder-remote-200475 --format plain
 ```
 
 ## Output format

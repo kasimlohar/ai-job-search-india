@@ -12,7 +12,7 @@ description: >
   vacancy", telecaller job, "nokri", "kaam", part-time / full-time jobs near me,
   freshers jobs, look up this apna.co posting.
 context: fork
-allowed-tools: Bash(bun run skills/apna-search/cli/src/cli.ts *)
+allowed-tools: Bash(bun run .agents/skills/apna-search/cli/src/cli.ts *)
 ---
 
 # apna.co Search Skill
@@ -48,7 +48,7 @@ fall back to city-wide listings filtered by keyword.
 ### Search job listings
 
 ```bash
-bun run skills/apna-search/cli/src/cli.ts search -q "<role>" [-l "<city>"] [flags]
+bun run .agents/skills/apna-search/cli/src/cli.ts search -q "<role>" [-l "<city>"] [flags]
 ```
 
 Key flags:
@@ -63,7 +63,7 @@ Key flags:
 ### Fetch full job detail
 
 ```bash
-bun run skills/apna-search/cli/src/cli.ts detail <id|url> [--format json|plain]
+bun run .agents/skills/apna-search/cli/src/cli.ts detail <id|url> [--format json|plain]
 ```
 
 `id` is the numeric job id from `search` results (e.g. `276594032`). You may also
@@ -75,19 +75,19 @@ description (English/Hindi), and the apply link.
 
 ```bash
 # Delivery roles in Delhi (the canonical test query)
-bun run skills/apna-search/cli/src/cli.ts search -q "delivery executive" -l "Delhi" --format table
+bun run .agents/skills/apna-search/cli/src/cli.ts search -q "delivery executive" -l "Delhi" --format table
 
 # Telecaller / BPO roles in Mumbai, first 10
-bun run skills/apna-search/cli/src/cli.ts search -q "telecaller" -l "Mumbai" --limit 10 --format table
+bun run .agents/skills/apna-search/cli/src/cli.ts search -q "telecaller" -l "Mumbai" --limit 10 --format table
 
 # Driver jobs in Bengaluru posted in the last 7 days
-bun run skills/apna-search/cli/src/cli.ts search -q "driver" -l "Bengaluru" --jobage 7 --format table
+bun run .agents/skills/apna-search/cli/src/cli.ts search -q "driver" -l "Bengaluru" --jobage 7 --format table
 
 # Data-entry / back-office roles anywhere in India
-bun run skills/apna-search/cli/src/cli.ts search -q "data entry" --format table
+bun run .agents/skills/apna-search/cli/src/cli.ts search -q "data entry" --format table
 
 # Full details for one posting
-bun run skills/apna-search/cli/src/cli.ts detail 276594032 --format plain
+bun run .agents/skills/apna-search/cli/src/cli.ts detail 276594032 --format plain
 ```
 
 ## Output formats

@@ -11,7 +11,7 @@ description: >
   "YC jobs", "Y Combinator jobs", "Work at a Startup", "startup jobs", "jobs at
   YC startups", "workatastartup", look up a YC job posting.
 context: fork
-allowed-tools: Bash(bun run skills/ycombinator-search/cli/src/cli.ts *)
+allowed-tools: Bash(bun run .agents/skills/ycombinator-search/cli/src/cli.ts *)
 ---
 
 # Y Combinator "Work at a Startup" Search Skill
@@ -61,7 +61,7 @@ browsing is by **role category** only, and each category returns a fixed set
 ### Search job listings
 
 ```bash
-bun run skills/ycombinator-search/cli/src/cli.ts search [flags]
+bun run .agents/skills/ycombinator-search/cli/src/cli.ts search [flags]
 ```
 
 Key flags:
@@ -81,7 +81,7 @@ it fetches only that category; with none it returns the default listing.
 ### Fetch full job detail
 
 ```bash
-bun run skills/ycombinator-search/cli/src/cli.ts detail <id|url> [--format json|plain]
+bun run .agents/skills/ycombinator-search/cli/src/cli.ts detail <id|url> [--format json|plain]
 ```
 
 `id` is the numeric job ID from `search` results (e.g. `95705`). You may also pass a
@@ -93,22 +93,22 @@ apply link.
 
 ```bash
 # Data-analyst-ish roles across all YC startups (client-side keyword filter)
-bun run skills/ycombinator-search/cli/src/cli.ts search -q "data analyst" --format table
+bun run .agents/skills/ycombinator-search/cli/src/cli.ts search -q "data analyst" --format table
 
 # Broader "data" roles that are remote, capped at 10
-bun run skills/ycombinator-search/cli/src/cli.ts search -q "data" -l "Remote" --limit 10 --format table
+bun run .agents/skills/ycombinator-search/cli/src/cli.ts search -q "data" -l "Remote" --limit 10 --format table
 
 # Everything in the Science category
-bun run skills/ycombinator-search/cli/src/cli.ts search -r science --format table
+bun run .agents/skills/ycombinator-search/cli/src/cli.ts search -r science --format table
 
 # Engineering roles mentioning India in the location
-bun run skills/ycombinator-search/cli/src/cli.ts search -q "engineer" -l "India" --format json
+bun run .agents/skills/ycombinator-search/cli/src/cli.ts search -q "engineer" -l "India" --format json
 
 # Product roles, page 2
-bun run skills/ycombinator-search/cli/src/cli.ts search -r product-manager --page 2 --format table
+bun run .agents/skills/ycombinator-search/cli/src/cli.ts search -r product-manager --page 2 --format table
 
 # Full details for a specific job
-bun run skills/ycombinator-search/cli/src/cli.ts detail 95705 --format plain
+bun run .agents/skills/ycombinator-search/cli/src/cli.ts detail 95705 --format plain
 ```
 
 ## Output formats

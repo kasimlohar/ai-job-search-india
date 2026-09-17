@@ -9,7 +9,7 @@ description: >
   find a job on CutShort, search CutShort, CutShort jobs, India tech jobs, startup
   jobs India, "any data analyst jobs in Bangalore", look up this CutShort posting.
 context: fork
-allowed-tools: Bash(bun run skills/cutshort-search/cli/src/cli.ts *)
+allowed-tools: Bash(bun run .agents/skills/cutshort-search/cli/src/cli.ts *)
 ---
 
 # CutShort Search Skill
@@ -48,7 +48,7 @@ commercially or for bulk data collection.** Run it on your own responsibility.
 ### Search job listings
 
 ```bash
-bun run skills/cutshort-search/cli/src/cli.ts search [flags]
+bun run .agents/skills/cutshort-search/cli/src/cli.ts search [flags]
 ```
 
 Key flags:
@@ -62,7 +62,7 @@ Key flags:
 ### Fetch full job detail
 
 ```bash
-bun run skills/cutshort-search/cli/src/cli.ts detail <id|url> [--format json|plain]
+bun run .agents/skills/cutshort-search/cli/src/cli.ts detail <id|url> [--format json|plain]
 ```
 
 `id` is the short job id from `search` results (e.g. `arcRXEzK`). You may also pass a full
@@ -73,22 +73,22 @@ type, salary, required skills, dates, and the full description.
 
 ```bash
 # Data analyst roles in Bangalore
-bun run skills/cutshort-search/cli/src/cli.ts search -q "data analyst" -l "Bangalore" --format table
+bun run .agents/skills/cutshort-search/cli/src/cli.ts search -q "data analyst" -l "Bangalore" --format table
 
 # Business intelligence roles in Pune, first 10
-bun run skills/cutshort-search/cli/src/cli.ts search -q "business intelligence" -l "Pune" --limit 10 --format table
+bun run .agents/skills/cutshort-search/cli/src/cli.ts search -q "business intelligence" -l "Pune" --limit 10 --format table
 
 # Data engineer roles in Mumbai posted in the last 14 days
-bun run skills/cutshort-search/cli/src/cli.ts search -q "data engineer" -l "Mumbai" --jobage 14 --format table
+bun run .agents/skills/cutshort-search/cli/src/cli.ts search -q "data engineer" -l "Mumbai" --jobage 14 --format table
 
 # Power BI roles anywhere in India
-bun run skills/cutshort-search/cli/src/cli.ts search -q "power bi" --limit 15 --format table
+bun run .agents/skills/cutshort-search/cli/src/cli.ts search -q "power bi" --limit 15 --format table
 
 # Remote analytics roles
-bun run skills/cutshort-search/cli/src/cli.ts search -q "analytics" -l "Remote" --format table
+bun run .agents/skills/cutshort-search/cli/src/cli.ts search -q "analytics" -l "Remote" --format table
 
 # Full details for a specific job
-bun run skills/cutshort-search/cli/src/cli.ts detail arcRXEzK --format plain
+bun run .agents/skills/cutshort-search/cli/src/cli.ts detail arcRXEzK --format plain
 ```
 
 ## Output formats

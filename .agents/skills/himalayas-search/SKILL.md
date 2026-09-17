@@ -10,7 +10,7 @@ description: >
   remote positions, "are there any remote X jobs", look up this Himalayas job
   posting.
 context: fork
-allowed-tools: Bash(bun run skills/himalayas-search/cli/src/cli.ts *)
+allowed-tools: Bash(bun run .agents/skills/himalayas-search/cli/src/cli.ts *)
 ---
 
 # Himalayas Search Skill
@@ -35,7 +35,7 @@ with just `bun`.
 ### Search job listings
 
 ```bash
-bun run skills/himalayas-search/cli/src/cli.ts search [flags]
+bun run .agents/skills/himalayas-search/cli/src/cli.ts search [flags]
 ```
 
 Key flags:
@@ -51,7 +51,7 @@ Key flags:
 ### Fetch full job detail
 
 ```bash
-bun run skills/himalayas-search/cli/src/cli.ts detail <id|url> [--pages <n>] [--format json|plain]
+bun run .agents/skills/himalayas-search/cli/src/cli.ts detail <id|url> [--pages <n>] [--format json|plain]
 ```
 
 `id` is `<companySlug>/<jobSlug>` from `search` results (e.g.
@@ -63,13 +63,13 @@ re-scan for the ID — raise it if you're looking up an older posting than your 
 
 ```bash
 # Data engineer roles, any region
-bun run skills/himalayas-search/cli/src/cli.ts search -q "data engineer" --format table
+bun run .agents/skills/himalayas-search/cli/src/cli.ts search -q "data engineer" --format table
 
 # Designer roles restricted to Canada, scan more pages for better recall
-bun run skills/himalayas-search/cli/src/cli.ts search -q "designer" -l "Canada" --pages 10 --format table
+bun run .agents/skills/himalayas-search/cli/src/cli.ts search -q "designer" -l "Canada" --pages 10 --format table
 
 # Full details for a specific job
-bun run skills/himalayas-search/cli/src/cli.ts detail bizcover/customer-care-consultants --format plain
+bun run .agents/skills/himalayas-search/cli/src/cli.ts detail bizcover/customer-care-consultants --format plain
 ```
 
 ## Output formats

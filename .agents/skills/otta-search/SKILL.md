@@ -11,7 +11,7 @@ description: >
   Jungle jobs, WTTJ jobs, startup jobs, remote data/tech jobs, "find X jobs on
   Otta", look up this welcometothejungle.com posting.
 context: fork
-allowed-tools: Bash(bun run skills/otta-search/cli/src/cli.ts *)
+allowed-tools: Bash(bun run .agents/skills/otta-search/cli/src/cli.ts *)
 ---
 
 # Otta / Welcome to the Jungle Search Skill
@@ -44,7 +44,7 @@ at a time, not a crawl.
 ### Search job listings
 
 ```bash
-bun run skills/otta-search/cli/src/cli.ts search --query "<keywords>" [flags]
+bun run .agents/skills/otta-search/cli/src/cli.ts search --query "<keywords>" [flags]
 ```
 
 Key flags:
@@ -61,7 +61,7 @@ Key flags:
 ### Fetch full job detail
 
 ```bash
-bun run skills/otta-search/cli/src/cli.ts detail <id|url> [--format json|plain]
+bun run .agents/skills/otta-search/cli/src/cli.ts detail <id|url> [--format json|plain]
 ```
 
 `id` is the job ID from `search` results (e.g. `4051077`). You may also pass a full
@@ -73,22 +73,22 @@ experience level, salary (when present), and the apply link.
 
 ```bash
 # Data analyst roles in India
-bun run skills/otta-search/cli/src/cli.ts search -q "data analyst" -l India --format table
+bun run .agents/skills/otta-search/cli/src/cli.ts search -q "data analyst" -l India --format table
 
 # Fully-remote data engineer roles posted in the last 14 days
-bun run skills/otta-search/cli/src/cli.ts search -q "data engineer" --remote remote --jobage 14 --format table
+bun run .agents/skills/otta-search/cli/src/cli.ts search -q "data engineer" --remote remote --jobage 14 --format table
 
 # Power BI roles in the UK, capped at 10
-bun run skills/otta-search/cli/src/cli.ts search -q "power bi" -l GB --limit 10 --format table
+bun run .agents/skills/otta-search/cli/src/cli.ts search -q "power bi" -l GB --limit 10 --format table
 
 # Bengaluru / hybrid analytics roles (country India, hybrid remote)
-bun run skills/otta-search/cli/src/cli.ts search -q "analytics" -l IN --remote hybrid --format table
+bun run .agents/skills/otta-search/cli/src/cli.ts search -q "analytics" -l IN --remote hybrid --format table
 
 # Full details for a specific job (id from search results)
-bun run skills/otta-search/cli/src/cli.ts detail 4051077 --format plain
+bun run .agents/skills/otta-search/cli/src/cli.ts detail 4051077 --format plain
 
 # Full details from a job URL
-bun run skills/otta-search/cli/src/cli.ts detail "https://www.welcometothejungle.com/en/companies/wise-1/jobs/lead-product-analyst-operations_hyderabad"
+bun run .agents/skills/otta-search/cli/src/cli.ts detail "https://www.welcometothejungle.com/en/companies/wise-1/jobs/lead-product-analyst-operations_hyderabad"
 ```
 
 ## Output formats

@@ -9,7 +9,7 @@ description: >
   remote job search, RemoteOK, search RemoteOK, remote openings, remote
   positions, "are there any remote X jobs", look up this RemoteOK job posting.
 context: fork
-allowed-tools: Bash(bun run skills/remoteok-search/cli/src/cli.ts *)
+allowed-tools: Bash(bun run .agents/skills/remoteok-search/cli/src/cli.ts *)
 ---
 
 # RemoteOK Search Skill
@@ -29,7 +29,7 @@ with just `bun`.
 ### Search job listings
 
 ```bash
-bun run skills/remoteok-search/cli/src/cli.ts search [flags]
+bun run .agents/skills/remoteok-search/cli/src/cli.ts search [flags]
 ```
 
 Key flags:
@@ -43,7 +43,7 @@ Key flags:
 ### Fetch full job detail
 
 ```bash
-bun run skills/remoteok-search/cli/src/cli.ts detail <id|url> [--format json|plain]
+bun run .agents/skills/remoteok-search/cli/src/cli.ts detail <id|url> [--format json|plain]
 ```
 
 `id` is the numeric job ID from `search` results (e.g. `1134704`). You may also pass a
@@ -54,13 +54,13 @@ range (if listed), and apply link.
 
 ```bash
 # Data engineer roles, any region
-bun run skills/remoteok-search/cli/src/cli.ts search -q "data engineer" --format table
+bun run .agents/skills/remoteok-search/cli/src/cli.ts search -q "data engineer" --format table
 
 # Designer roles, Europe-hinted only
-bun run skills/remoteok-search/cli/src/cli.ts search -q "designer" -l "Europe" --format table
+bun run .agents/skills/remoteok-search/cli/src/cli.ts search -q "designer" -l "Europe" --format table
 
 # Full details for a specific job
-bun run skills/remoteok-search/cli/src/cli.ts detail 1134704 --format plain
+bun run .agents/skills/remoteok-search/cli/src/cli.ts detail 1134704 --format plain
 ```
 
 ## Output formats

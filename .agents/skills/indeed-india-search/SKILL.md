@@ -10,7 +10,7 @@ description: >
   search Indeed, job vacancies in <Indian city>, naukri/jobs in India, "are there
   any X jobs in <Indian city>", look up this Indeed job posting, in.indeed.com.
 context: fork
-allowed-tools: Bash(bun run skills/indeed-india-search/cli/src/cli.ts *)
+allowed-tools: Bash(bun run .agents/skills/indeed-india-search/cli/src/cli.ts *)
 ---
 
 # Indeed India Search Skill
@@ -39,7 +39,7 @@ scale, use Indeed's official Publisher/Employer APIs instead.
 ### Search job listings
 
 ```bash
-bun run skills/indeed-india-search/cli/src/cli.ts search --query "<keywords>" [flags]
+bun run .agents/skills/indeed-india-search/cli/src/cli.ts search --query "<keywords>" [flags]
 ```
 
 Key flags:
@@ -55,7 +55,7 @@ At least one of `--query` or `--location` must be supplied.
 ### Fetch full job detail
 
 ```bash
-bun run skills/indeed-india-search/cli/src/cli.ts detail <jobkey|url> [--format json|plain]
+bun run .agents/skills/indeed-india-search/cli/src/cli.ts detail <jobkey|url> [--format json|plain]
 ```
 
 `jobkey` is the `id` from `search` results (e.g. `1758596463bc5d18`). You may also
@@ -66,19 +66,19 @@ company, location, employment type, salary (when listed), and apply link.
 
 ```bash
 # Accountant roles in Chennai
-bun run skills/indeed-india-search/cli/src/cli.ts search -q "accountant" -l "Chennai" --format table
+bun run .agents/skills/indeed-india-search/cli/src/cli.ts search -q "accountant" -l "Chennai" --format table
 
 # Data analyst roles in Bengaluru, last 7 days
-bun run skills/indeed-india-search/cli/src/cli.ts search -q "data analyst" -l "Bengaluru, Karnataka" --jobage 7 --format table
+bun run .agents/skills/indeed-india-search/cli/src/cli.ts search -q "data analyst" -l "Bengaluru, Karnataka" --jobage 7 --format table
 
 # Software engineer roles in Hyderabad
-bun run skills/indeed-india-search/cli/src/cli.ts search -q "software engineer" -l "Hyderabad, Telangana" --format table
+bun run .agents/skills/indeed-india-search/cli/src/cli.ts search -q "software engineer" -l "Hyderabad, Telangana" --format table
 
 # Any role in Pune, remote-friendly search
-bun run skills/indeed-india-search/cli/src/cli.ts search -q "customer support" -l "Pune, Maharashtra" --limit 10
+bun run .agents/skills/indeed-india-search/cli/src/cli.ts search -q "customer support" -l "Pune, Maharashtra" --limit 10
 
 # Full details for a specific job
-bun run skills/indeed-india-search/cli/src/cli.ts detail 1758596463bc5d18 --format plain
+bun run .agents/skills/indeed-india-search/cli/src/cli.ts detail 1758596463bc5d18 --format plain
 ```
 
 ## Output formats
