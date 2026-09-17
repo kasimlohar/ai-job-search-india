@@ -1,0 +1,38 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": [
+    "CLAUDE.md",
+    ".claude/skills/job-application-assistant/01-candidate-profile.md",
+    ".claude/skills/job-application-assistant/04-job-evaluation.md"
+  ],
+  "formatter": true,
+  "lsp": true,
+  "permission": {
+    "edit": "ask",
+    "read": "allow",
+    "webfetch": "allow",
+    "websearch": "allow",
+    "question": "allow",
+    "bash": {
+      "*": "ask",
+      "bun run .agents/skills/*/cli/src/cli.ts *": "allow",
+      "py tools/*": "allow",
+      "python tools/*": "allow"
+    },
+    "skill": {
+      "*": "allow"
+    }
+  },
+  "mcp": {
+    "notion": {
+      "type": "remote",
+      "url": "https://mcp.notion.com/mcp",
+      "enabled": false
+    },
+    "playwright": {
+      "type": "local",
+      "command": ["npx", "@playwright/mcp@latest"],
+      "enabled": false
+    }
+  }
+}
